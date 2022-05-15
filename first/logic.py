@@ -1,7 +1,7 @@
 def calculator(expression):
     allowed = '+-/*'
     if not any(sign in expression for sign in allowed):
-        raise ValueError(f'выражение должно содержать хотя бы один знак {allowed}')
+        raise ValueError(f'выражение должно содержать хотя бы один знак ({allowed})')
     for sign in allowed:
         if sign in expression:
             try:
@@ -16,7 +16,7 @@ def calculator(expression):
                 elif sign == '*':
                     return left * right
             except (ValueError, TypeError):
-                raise ValueError('Выражение должно содержать 2 целых сила')
+                raise ValueError('выражение должно содержать 2 целых числа и 1 знак')
 
 
 if __name__ == '__main__':
