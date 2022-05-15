@@ -35,7 +35,6 @@ class CalculatorTest(TestCase):
             calculator('2.2*3.0')
         self.assertEqual('выражение должно содержать 2 целых числа и 1 знак', e.exception.args[0])
 
-
     def test_strings(self):
         with self.assertRaises(ValueError) as e:
             calculator('a + b')
