@@ -1,11 +1,23 @@
-def plus(a,b):
-    return a+b
+def calculator(expression):
+    allowed = '+-/*'
+    if not any(sign in expression for sign in allowed):
+        raise ValueError(f'выражение должно содержать хотя бы один знак {allowed}')
+    for sign in allowed:
+        if sign in expression:
+            try:
+                left, right = expression.split(sign)
+                left, right = int(left), int(right)
+                if sign == '+':
+                    return left + right
+                elif sign == '-':
+                    return left - right
+                elif sign == '/':
+                    return left / right
+                elif sign == '*':
+                    return left * right
+            except (ValueError, TypeError):
+                raise ValueError('Выражение должно содержать 2 целых сила')
 
-text = 'new text'
-
-def minus(a,b):
-    return a-b
 
 if __name__ == '__main__':
-    print(plus(2, 5))
-    print(minus(5,7))
+    print(calculator('10/5'))
